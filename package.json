@@ -1,0 +1,29 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "A basic Nodejs RESTful API",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon routes.js",
+    "test": "jest --watchAll"
+  },
+  "keywords": [],
+  "author": "Alex Whitmore",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.2.4",
+    "nodemon": "^2.0.13",
+    "prettier": "^2.4.1",
+    "supertest": "^6.1.6"
+  },
+  "dependencies": {
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-jest": "^24.5.2",
+    "install-peerdeps": "^3.0.3"
+  }
+}
