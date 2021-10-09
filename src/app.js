@@ -4,28 +4,14 @@ const {
   queryParse,
   createResponse,
   registerPath,
+  readBody,
 } = require('../utils/helpers');
 
 let server;
 
-function app() {
+const app = () => {
   let routeTable = {};
   let parseMethod = 'json';
-
-  function readBody(req) {
-    return new Promise((resolve, reject) => {
-      let body = '';
-      req.on('data', (chunk) => {
-        body += '' + chunk;
-      });
-      req.on('end', () => {
-        resolve(body);
-      });
-      req.on('error', (err) => {
-        reject(err);
-      });
-    });
-  }
 
   server = http.createServer(async (req, res) => {
     const routes = Object.keys(routeTable);
@@ -102,6 +88,6 @@ function app() {
     },
     _server: server,
   };
-}
+};
 
 module.exports = app;
