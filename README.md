@@ -7,3 +7,26 @@
 ```
 npm install && npm start
 ```
+
+## Testing the Application
+
+```javascript
+/*
+ * routes.js has starting HTTP methods && runs on port 3000
+ */
+
+const users = require('../data/data')
+
+const users = [
+  {
+    firstName: 'First',
+    lastName: 'Last'
+  }
+  ...
+];
+
+// Example of currently existing GET request
+Restful.get('/users', (req, res) => {
+  res.json(users);
+});
+```
