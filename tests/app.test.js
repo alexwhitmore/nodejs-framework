@@ -1,4 +1,4 @@
-const server = require('../app')();
+const server = require('../src/app')();
 const supertest = require('supertest');
 const request = supertest(server._server);
 const { createResponse } = require('../utils/helpers');

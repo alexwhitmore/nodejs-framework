@@ -4,7 +4,7 @@ const {
   queryParse,
   createResponse,
   registerPath,
-} = require('./utils/helpers');
+} = require('../utils/helpers');
 
 let server;
 

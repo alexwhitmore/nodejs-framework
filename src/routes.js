@@ -1,5 +1,5 @@
 const app = require('./app');
-const users = require('./data');
+const users = require('../data/data');
 
 const Restful = app();
 
