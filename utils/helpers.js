@@ -42,12 +42,12 @@ const registerPath = (routeTable, path, cb, method, middleware) => {
 const urlParse = (url) => {
   let str = '';
 
-  for (var i = 0; i < url.length; i++) {
-    const c = url.charAt(i);
-    if (c === ':') {
-      // eat all characters
+  for (let i = 0; i < url.length; i++) {
+    const routeCharacter = url.charAt(i);
+
+    if (routeCharacter === ':') {
       let param = '';
-      for (var j = i + 1; j < url.length; j++) {
+      for (let j = i + 1; j < url.length; j++) {
         if (/\w/.test(url.charAt(j))) {
           param += url.charAt(j);
         } else {
@@ -57,10 +57,25 @@ const urlParse = (url) => {
       str += `(?<${param}>\\w+)`;
       i = j - 1;
     } else {
-      str += c;
+      str += routeCharacter;
     }
   }
   return str;
+};
+
+const readBody = (req) => {
+  return new Promise((resolve, reject) => {
+    let body = '';
+    req.on('data', (chunk) => {
+      body += '' + chunk;
+    });
+    req.on('end', () => {
+      resolve(body);
+    });
+    req.on('error', (err) => {
+      reject(err);
+    });
+  });
 };
 
 module.exports = {
@@ -68,4 +83,5 @@ module.exports = {
   createResponse,
   registerPath,
   urlParse,
+  readBody,
 };
